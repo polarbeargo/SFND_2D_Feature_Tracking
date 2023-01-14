@@ -48,10 +48,25 @@ void descKeypoints(vector<cv::KeyPoint> &keypoints, cv::Mat &img, cv::Mat &descr
 
         extractor = cv::BRISK::create(threshold, octaves, patternScale);
     }
+    else if (descriptorType.compare("FAST") == 0)
+    {
+        extractor = cv::xfeatures2d::FAST::create();
+    }
+    else if (descriptorType.compare("ORB") == 0)
+    {
+        extractor = cv::ORB::create();
+    }
+    else if (descriptorType.compare("AKAZE") == 0)
+    {
+        extractor = cv::AKAZE::create();
+    }
+    else if (descriptorType.compare("SIFT") == 0)
+    {
+        extractor = cv::xfeatures2d::SIFT::create();
+    }
     else
     {
-
-        //...
+        throw invalid_argument(descriptorType + " is not a valid descriptor.");
     }
 
     // perform feature description
