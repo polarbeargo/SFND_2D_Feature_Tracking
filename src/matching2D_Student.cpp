@@ -36,9 +36,9 @@ void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::Key
         const float threshold = 0.8f;
         for (auto it = knn_matches.begin(); it != knn_matches.end(); ++it)
         {
-            if (knn_matches(*it)[0].distance < knn_matches(*it)[1].distance * threshold)
+            if ((*it)[0].distance < (*it)[1].distance * threshold)
             {
-                matches.push_back(knn_matches(*it)[0]);
+                matches.push_back((*it)[0]);
             }
         }
     }
@@ -60,7 +60,7 @@ void descKeypoints(vector<cv::KeyPoint> &keypoints, cv::Mat &img, cv::Mat &descr
     }
     else if (descriptorType.compare("FAST") == 0)
     {
-        extractor = cv::xfeatures2d::FAST::create();
+        extractor = cv::FastFeatureDetector::create();
     }
     else if (descriptorType.compare("ORB") == 0)
     {
