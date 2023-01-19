@@ -166,8 +166,8 @@ void detKeypointsModern(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, std:
         double t = (double)cv::getTickCount();
         detector->detect(img, keypoints);
         t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
+        windowName = "FAST Detector Results";
         cout << "FAST detector with n= " << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << endl;
-        string windowName = "FAST Detector Results";
     }
     else if (detectorType.compare("BRISK") == 0)
     {
@@ -177,16 +177,17 @@ void detKeypointsModern(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, std:
         detector->detect(img, keypoints);
         t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
         cout << "BRISK detector with n= " << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << endl;
-        string windowName = "BRISK Detector Results";
+        windowName = "BRISK Detector Results";
     }
     else if (detectorType.compare("ORB") == 0)
     {
+
         cv::Ptr<cv::FeatureDetector> detector = cv::ORB::create();
         double t = (double)cv::getTickCount();
         detector->detect(img, keypoints);
         t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
         cout << "ORB detector with n= " << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << endl;
-        string windowName = "ORB Detector Results";
+        windowName = "ORB Detector Results";
     }
     else if (detectorType.compare("AKAZE") == 0)
     {
@@ -195,7 +196,7 @@ void detKeypointsModern(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, std:
         detector->detect(img, keypoints);
         t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
         cout << "AKAZE detector with n= " << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << endl;
-        string windowName = "AKAZE Detector Results";
+        windowName = "AKAZE Detector Results";
     }
     else if (detectorType.compare("SIFT") == 0)
     {
@@ -204,7 +205,7 @@ void detKeypointsModern(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, std:
         detector->detect(img, keypoints);
         t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
         cout << "SIFT detector with n= " << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << endl;
-        string windowName = "SIFT Detector Results";
+        windowName = "SIFT Detector Results";
     }
     // visualize results
     if (bVis)
