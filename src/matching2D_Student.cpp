@@ -41,6 +41,7 @@ void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::Key
                 matches.push_back((*it)[0]);
             }
         }
+
         std::cout << "# keypoints removed = " << knn_matches.size() - matches.size() << std::endl;
     }
 }
@@ -74,6 +75,10 @@ void descKeypoints(vector<cv::KeyPoint> &keypoints, cv::Mat &img, cv::Mat &descr
     else if (descriptorType.compare("SIFT") == 0)
     {
         extractor = cv::xfeatures2d::SIFT::create();
+    }
+    else if (descriptorType.compare("FREAK") == 0)
+    {
+        extractor = cv::xfeatures2d::FREAK::create();
     }
     else if (descriptorType.compare("BRIEF") == 0)
     {
