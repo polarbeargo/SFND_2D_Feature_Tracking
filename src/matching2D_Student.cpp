@@ -52,11 +52,11 @@ void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::Key
 
         // implement the descriptor distance ratio test with t=0.8
         const float threshold = 0.8f;
-        for (auto it = knn_matches.begin(); it != knn_matches.end(); ++it)
+        for (const auto &it : knn_matches)
         {
-            if ((*it)[0].distance < (*it)[1].distance * threshold)
+            if (it[0].distance < it[1].distance * threshold)
             {
-                matches.push_back((*it)[0]);
+                matches.push_back(it[0]);
             }
         }
 
@@ -288,3 +288,4 @@ void detKeypointsShiTomasi(vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool b
         displayWindow(windowName, img, keypoints, visImage);
     }
 }
+P
