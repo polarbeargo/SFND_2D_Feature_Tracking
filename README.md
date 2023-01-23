@@ -53,7 +53,7 @@ We implemented descriptors BRIEF, ORB, FREAK, AKAZE and SIFT and make them selec
 ### MP.5-6 Matching Descriptors & Descriptor Distance Ratio  
 We implemented FLANN matching as well as k-nearest neighbor selection. Both methods can be selectable using the respective strings in the main function at MidTermProject_Camera_Student.cpp line [159](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/10352ddc3650d88da39eb5e7dac39fb9125adbb9/src/MidTermProject_Camera_Student.cpp#L159) - [174](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/10352ddc3650d88da39eb5e7dac39fb9125adbb9/src/MidTermProject_Camera_Student.cpp#L174) and matching2D_Student.cpp line [44](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/10352ddc3650d88da39eb5e7dac39fb9125adbb9/src/matching2D_Student.cpp#L44) - [64](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/10352ddc3650d88da39eb5e7dac39fb9125adbb9/src/matching2D_Student.cpp#L64).  
   
-<img src="images/midterm.png" width="820" height="248" />  
+<img src="images/midterm.gif" width="820" height="248" />  
 
 ### MP.7 Performance Evaluation 1  
 Count the number of keypoints on the preceding vehicle for all 10 images and take note of the distribution of their neighborhood size. Do this for all the detectors you have implemented.  
