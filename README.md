@@ -23,9 +23,13 @@ frame.cameraImg = imgGray;
 dataBuffer.push_back(frame);
 
 // Only hold certain number of images in memory prevent push the memory of the computer to its limit and eventually slow down the entire program.
-if (dataBuffer.size() > dataBufferSize)
+if (dataBuffer.size() >= dataBufferSize)
 {
   dataBuffer.erase(dataBuffer.begin());
+}
+else
+{
+  dataBuffer.push_back(frame);
 }
 ```  
 ### MP.2 Keypoint Detection  
@@ -46,12 +50,12 @@ SIFT
 <img src="images/SIFT.png" width="820" height="248" />   
 
 ### MP.3 Keypoint Removal  
-We remove all keypoints outside of a pre-defined rectangle and only use the keypoints within the rectangle for further processing at line [102](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/10352ddc3650d88da39eb5e7dac39fb9125adbb9/src/MidTermProject_Camera_Student.cpp#L102) - [118](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/10352ddc3650d88da39eb5e7dac39fb9125adbb9/src/MidTermProject_Camera_Student.cpp#L118).  
+We remove all keypoints outside of a pre-defined rectangle and only use the keypoints within the rectangle for further processing at line [106](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/84ecc231fcbd449050cb15e1c8b9f12bef222e6f/src/MidTermProject_Camera_Student.cpp#L106) - [119](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/84ecc231fcbd449050cb15e1c8b9f12bef222e6f/src/MidTermProject_Camera_Student.cpp#L119).  
 
 ### MP.4 Keypoint Descriptors  
-We implemented descriptors BRIEF, ORB, FREAK, AKAZE and SIFT and make them selectable by setting a string accordingly at line [143](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/10352ddc3650d88da39eb5e7dac39fb9125adbb9/src/MidTermProject_Camera_Student.cpp#L143) - [149](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/10352ddc3650d88da39eb5e7dac39fb9125adbb9/src/MidTermProject_Camera_Student.cpp#L149).
+We implemented descriptors BRIEF, ORB, FREAK, AKAZE and SIFT and make them selectable by setting a string accordingly at line [141](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/84ecc231fcbd449050cb15e1c8b9f12bef222e6f/src/MidTermProject_Camera_Student.cpp#L141) - [148](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/84ecc231fcbd449050cb15e1c8b9f12bef222e6f/src/MidTermProject_Camera_Student.cpp#L148).
 ### MP.5-6 Matching Descriptors & Descriptor Distance Ratio  
-We implemented FLANN matching as well as k-nearest neighbor selection. Both methods can be selectable using the respective strings in the main function at MidTermProject_Camera_Student.cpp line [159](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/10352ddc3650d88da39eb5e7dac39fb9125adbb9/src/MidTermProject_Camera_Student.cpp#L159) - [174](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/10352ddc3650d88da39eb5e7dac39fb9125adbb9/src/MidTermProject_Camera_Student.cpp#L174) and matching2D_Student.cpp line [44](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/10352ddc3650d88da39eb5e7dac39fb9125adbb9/src/matching2D_Student.cpp#L44) - [64](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/10352ddc3650d88da39eb5e7dac39fb9125adbb9/src/matching2D_Student.cpp#L64).  
+We implemented FLANN matching as well as k-nearest neighbor selection. Both methods can be selectable using the respective strings in the main function at MidTermProject_Camera_Student.cpp line [158](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/84ecc231fcbd449050cb15e1c8b9f12bef222e6f/src/MidTermProject_Camera_Student.cpp#L158) - [173](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/84ecc231fcbd449050cb15e1c8b9f12bef222e6f/src/MidTermProject_Camera_Student.cpp#L173) and matching2D_Student.cpp line [44](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/84ecc231fcbd449050cb15e1c8b9f12bef222e6f/src/matching2D_Student.cpp#L44) - [64](https://github.com/polarbeargo/SFND_2D_Feature_Tracking/blob/84ecc231fcbd449050cb15e1c8b9f12bef222e6f/src/matching2D_Student.cpp#L64).  
   
 <img src="images/midterm.gif" width="820" height="248" />  
 
