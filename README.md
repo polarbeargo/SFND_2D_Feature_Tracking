@@ -26,10 +26,7 @@ if (dataBuffer.size() == dataBufferSize)
 {
   dataBuffer.erase(dataBuffer.begin());
 }
-else
-{
-  dataBuffer.push_back(frame);
-}
+dataBuffer.push_back(frame);
 ```  
 ### MP.2 Keypoint Detection  
 We modified `string detectorType` for use different type of detectors as the following:   
